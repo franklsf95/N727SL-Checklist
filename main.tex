@@ -1,0 +1,174 @@
+\documentclass{article}
+\usepackage[paperheight=8.5in,paperwidth=5.5in,margin=0.1in]{geometry}
+
+\usepackage[sfdefault]{roboto}
+\usepackage[T1]{fontenc}
+
+\usepackage{enumitem}
+\usepackage[fontsize=6pt]{fontsize}
+\usepackage{framed}
+\usepackage{makecell}
+\usepackage{multicol}
+\usepackage{tabularx}
+\usepackage[table]{xcolor}
+\usepackage{tcolorbox}
+
+\setlength\columnsep{1pt}
+
+\newtcolorbox{checklistbox}[2][black]{
+    arc=0pt,
+    colframe=#1!25,
+    colback=#1!10,
+    coltitle=#1!20!black,
+    lefttitle=1em,
+    fonttitle=\large\bfseries,
+    tabularx=X,
+    title=#2
+}
+\newtcolorbox{notebox}[1][yellow]{
+    arc=1pt,
+    boxrule=1pt,
+    colframe=#1,
+    colback=#1!10,
+    fontupper=\footnotesize,
+    left=0pt,
+    right=0pt
+}
+
+\rowcolors{2}{gray!20}{white}
+\newcommand{\checkitem}[2]{#1 \dotfill \textbf{#2} \\}
+\newcommand{\checkitemnote}[3]{
+    \makecell[X]{
+        \checkitem{#1}{#2}
+        {\footnotesize #3}
+    } \\
+}
+
+\begin{document}
+\begin{tcolorbox}
+    \Large \textsc{Cirrus SR-22 Flight Operations Checklist}
+\end{tcolorbox}
+
+\begin{multicols}{3}
+
+    % \begin{checklistbox}[green]{Flight Planning}
+    %     \checkitem{Weather Briefing}{OBTAIN}
+    %     \checkitem{Weight and Balance}{CALCULATE}
+    % \end{checklistbox}
+
+    \begin{checklistbox}{Preflight (Interior)}
+        \checkitem{Fire Extinguisher \& Hammer}{ON BOARD}
+        TODO
+    \end{checklistbox}
+
+    \begin{checklistbox}{Before Starting Engine}
+        \checkitem{Preflight Inspection}{COMPLETED}
+        \checkitemnote{Passengers}{BRIEF}{\textbf{S}eat Belts, \textbf{A}/C, \textbf{F}ire, \textbf{E}xit, \textbf{T}raffic/Talking, CAPS}
+        \checkitem{Seat Belts}{ADJUST \& SECURE}
+        \checkitem{CAPS Pin}{REMOVE}
+        TODO
+    \end{checklistbox}
+
+    \begin{checklistbox}{Starting Engine}
+        \checkitem{Brakes}{HOLD}
+        \checkitem{Ignition Key}{INSERTED}
+        \checkitem{Battery Masters 2 \& 1}{ON, CHECK 28V}
+        \checkitem{Strobe Lights}{ON}
+        \checkitem{Mixture}{FULL RICH}
+        \checkitem{Power Lever}{FULL FORWARD}
+        \checkitemnote{Fuel Pump}{PRIME, then BOOST}{Prime for 5 secs until fuel flow reaches 15\,gph}
+        \checkitem{Propeller Area}{CLEAR}
+        \checkitem{Power Lever}{OPEN ¼ INCH}
+        \checkitem{Ignition Switch}{START}
+        \checkitem{Power Lever}{1000\,RPM}
+        \checkitem{Oil Pressure}{CHECK > 0}
+        \checkitem{Alternator Masters 1 \& 2}{ON}
+        \checkitem{Avionics Master}{ON}
+        \checkitem{Engine Parameters}{CHECK GREEN}
+    \end{checklistbox}
+
+    \begin{checklistbox}{Starting Engine (Flooded)}
+        \checkitem{Fuel Pump}{OFF}
+        \checkitem{Mixture}{LEAN}
+        \checkitem{Power Lever}{FULL FORWARD}
+        \checkitem{Ignition Switch}{START}
+        \checkitem{Power Lever}{RETARD}
+        \checkitem{Mixture}{SLOWLY ADVANCE TO RICH}
+    \end{checklistbox}
+
+    \begin{checklistbox}{Before Taxiing}
+        \checkitem{Weather Information}{OBTAIN}
+        \checkitem{Taxi Clearance (Radio 2)}{OBTAIN}
+        \checkitem{Altimeter}{SET}
+        \checkitem{Flaps}{UP}
+        \checkitem{Mixture}{LEAN as rqd.}
+    \end{checklistbox}
+
+    \begin{checklistbox}{Taxiing}
+        \checkitem{Brakes}{CHECK}
+        \checkitem{HSI Orientation}{CHECK}
+        \checkitem{Attitude Indicator}{CHECK}
+        \checkitem{Turn Coordinator}{CHECK}
+    \end{checklistbox}
+
+    \begin{checklistbox}{Before Takeoff (Run-up)}
+        \checkitem{CAPS Pin}{REMOVED}
+        \checkitem{Flight Controls}{FREE \& CORRECT}
+        \checkitem{Trim}{SET TAKEOFF}
+        \checkitem{Altimeter}{SET}
+        \checkitem{Flight Instruments}{CHECK}
+        \checkitem{Flaps}{50\%}
+        \checkitem{Transponder}{SET}
+        \checkitem{Autopilot}{CHECK}
+        \checkitem{Navigation \& GPS}{SET}
+        \checkitem{Fuel Quantity}{CONFIRM}
+        \checkitem{Fuel Selector}{SWITCH TANK}
+        \checkitem{Fuel Pump}{BOOST}
+        \checkitem{Doors}{CLOSE \& LATCH}
+        \checkitem{Mixture}{FULL RICH or as rqd.}
+        \checkitem{Brakes}{HOLD}
+        \checkitem{Power Lever}{1700\,RPM}
+        \checkitem{Pitot Heat \& Lights}{ON}
+        \checkitem{Annunciators}{CHECK CLEAR}
+        \checkitem{Alternator Load}{CHECK BOTH > 0}
+        \checkitem{Alternator Voltage}{CHECK 28V}
+        \checkitem{Pitot Heat \& Lights}{as rqd.}
+        \checkitemnote{Magnetos}{CHECK L \& R}{Check RPM drop < 150, RPM differential < 75}
+        \checkitem{Engine Parameters}{CHECK GREEN}
+        \checkitem{Power Lever}{1000\,RPM}
+        \checkitem{Mixture}{LEAN as rqd.}
+        \checkitem{Flight Plan}{OPEN}
+        \checkitem{Takeoff Plan}{BRIEF}
+        \checkitem{Takeoff Clearance (Radio 1)}{OBTAIN}
+    \end{checklistbox}
+
+    \begin{checklistbox}{Takeoff}
+        \checkitem{Fuel Pump}{BOOST}
+        \checkitem{Mixture}{FULL RICH or as rqd.}
+        \checkitem{Transponder}{SET}
+        \checkitem{Lights}{ON}
+        \checkitem{Brakes}{RELEASE}
+        \checkitem{Power Lever}{FULL FORWARD}
+        \checkitem{Propeller}{CHECK 2700\,RPM}
+        \checkitem{Engine Parameters}{CHECK GREEN}
+        \checkitem{Elevator}{ROTATE (70--73\,KIAS)}
+        \checkitem{At 500\,ft, CAPS}{CALLOUT ``Available''}
+        \checkitem{At 80\,kts, Flaps}{UP}
+        \rowcolor{pink!10} \checkitem{Best Angle V\textsubscript{X}}{78 {\footnotesize \normalfont (SL)} 82 {\footnotesize \normalfont (10,000\,ft)}}
+        \rowcolor{cyan!10} \checkitem{Best Rate V\textsubscript{Y}}{101 {\footnotesize \normalfont (SL)} 95 {\footnotesize \normalfont (10,000\,ft)}}
+    \end{checklistbox}
+
+    \begin{checklistbox}{Climb}
+        \checkitem{Power Lever}{TODO set to what?}
+        \checkitem{Mixture}{TODO when to lean?}
+        \checkitem{Engine Parameters}{CHECK GREEN}
+        \checkitem{Fuel Pump}{BOOST}
+        \checkitem{Flaps}{UP}
+    \end{checklistbox}
+
+    \begin{checklistbox}{Cruise}
+        \checkitem{TODO}{}
+    \end{checklistbox}
+
+\end{multicols}
+\end{document}
