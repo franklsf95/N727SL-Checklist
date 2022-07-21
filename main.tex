@@ -43,6 +43,7 @@
         {\footnotesize #3}
     } \\
 }
+\newcommand{\valueat}[2]{\textmd{#1}{\scriptsize \normalfont #2}}
 
 \begin{document}
 \begin{tcolorbox}
@@ -142,6 +143,21 @@
         \checkitem{Takeoff Clearance (Radio 1)}{OBTAIN}
     \end{checklistbox}
 
+    \begin{checklistbox}{}
+        \textbf{\normalsize Maximum Power GPH} {\small (Pressure Altitudes)} \\
+        \valueat{27.1}{ (\,SL)}
+        \valueat{26.2}{ (\,1,000')}
+        \valueat{25.1}{ (\,2,000')}
+        \valueat{24.3}{ (\,3,000')}
+        \valueat{23.6}{ (\,4,000')}
+        \valueat{22.8}{ (\,5,000')}
+        \valueat{22.1}{ (\,6,000')}
+        \valueat{21.4}{ (\,7,000')}
+        \valueat{20.5}{ (\,8,000')}
+        \valueat{19.9}{ (\,9,000')}
+        \valueat{19.5}{ (\,10,000')}
+    \end{checklistbox}
+
     \begin{checklistbox}{Takeoff}
         \checkitem{Fuel Pump}{BOOST}
         \checkitem{Mixture}{FULL RICH or as rqd.}
@@ -154,21 +170,82 @@
         \checkitem{Elevator}{ROTATE (70--73\,KIAS)}
         \checkitem{At 500\,ft, CAPS}{CALLOUT ``Available''}
         \checkitem{At 80\,kts, Flaps}{UP}
-        \rowcolor{pink!10} \checkitem{Best Angle V\textsubscript{X}}{78 {\footnotesize \normalfont (SL)} 82 {\footnotesize \normalfont (10,000\,ft)}}
-        \rowcolor{cyan!10} \checkitem{Best Rate V\textsubscript{Y}}{101 {\footnotesize \normalfont (SL)} 95 {\footnotesize \normalfont (10,000\,ft)}}
+        \rowcolor{pink!20} \checkitem{Best Angle V\textsubscript{X}}{\valueat{78}{ (SL)}\;\valueat{82}{ (10,000')}}
+        \rowcolor{cyan!10} \checkitem{Best Rate V\textsubscript{Y}}{\valueat{101}{ (SL)}\;\valueat{95}{ (10,000')}}
     \end{checklistbox}
 
     \begin{checklistbox}{Climb}
-        \checkitem{Power Lever}{TODO set to what?}
+        \checkitem{Power}{TODO set to what?}
         \checkitem{Mixture}{TODO when to lean?}
         \checkitem{Engine Parameters}{CHECK GREEN}
         \checkitem{Fuel Pump}{BOOST}
         \checkitem{Flaps}{UP}
+        \rowcolor{cyan!10} \checkitem{Enroute Climb}{110--120\,KIAS}
     \end{checklistbox}
 
     \begin{checklistbox}{Cruise}
+        \checkitem{Lights}{as rqd.}
+        \checkitem{Fuel Pump}{OFF}
+        \checkitem{Power}{SET}
+        \makecell[X]{
+            \checkitemnote{Mixture}{LEAN as rqd.}
+            {\footnotesize Best Power: 75\textdegree F rich of peak EGT, power < 75\%}
+            {\footnotesize Best Economy: 50\textdegree F lean of peak EGT\, power < 65\%}
+        } \\
+        \checkitem{Engine Parameters}{CHECK GREEN}
+        \checkitem{Fuel Selector}{SWITCH as rqd.}
+    \end{checklistbox}
+
+    \begin{checklistbox}{}
+        \textbf{\normalsize Cruise Power Settings} \\
         \checkitem{TODO}{}
     \end{checklistbox}
+
+    \begin{checklistbox}{Descent}
+        \checkitem{Altimeter}{SET}
+        \checkitem{Lights}{ON}
+        \checkitem{Fuel Selector}{FULLEST TANK}
+        \checkitem{Mixture}{RICHEN as rqd.}
+        \checkitem{Brake Pressure}{CHECK}
+    \end{checklistbox}
+
+    \begin{checklistbox}{Before Landing}
+        \checkitem{Seat Belts}{SECURE}
+        \checkitem{Fuel Pump}{BOOST}
+        \checkitem{Mixture}{FULL RICH or as rqd.}
+        \checkitem{Flaps}{DEPLOY}
+        \rowcolor{orange!5} \checkitem{Approach (Flaps UP)}{100\,KIAS}
+        \rowcolor{orange!10} \checkitem{Approach (Flaps 50\%)}{90\,KIAS}
+        \rowcolor{orange!15} \checkitem{Approach (Flaps 100\%)}{80\,KIAS}
+        \rowcolor{orange!20} \checkitem{Short Field (Flaps 100\%)}{77\,KIAS}
+    \end{checklistbox}
+
+    \begin{checklistbox}{Go-Around}
+        \checkitem{Autopilot}{DISENGAGE}
+        \checkitem{Power Lever}{FULL FORWARD}
+        \checkitem{Flaps}{50\%}
+        \checkitem{Airspeed}{75--80\,KIAS}
+        \checkitem{Flaps}{UP}
+    \end{checklistbox}
+
+    \begin{checklistbox}{After Landing}
+        \checkitem{Power Lever}{1000\,RPM}
+        \checkitem{Fuel Pump}{OFF}
+        \checkitem{Flaps}{UP}
+        \checkitem{Lights}{as rqd.}
+        \checkitem{Pitot Heat}{OFF}
+    \end{checklistbox}
+
+    \begin{checklistbox}{Shutdown}
+        \checkitem{Fuel Pump}{OFF}
+        \checkitem{Power Lever}{IDLE}
+        \checkitem{Ignition Switch}{OFF, then BOTH}
+        \checkitem{Mixture}{CUTOFF}
+        \checkitem{All Switches}{OFF}
+        \checkitem{Ignition Switch}{OFF}
+        \checkitem{ELT}{NOT TRANSMITTING}
+    \end{checklistbox}
+
 
 \end{multicols}
 \end{document}
