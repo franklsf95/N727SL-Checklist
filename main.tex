@@ -22,6 +22,7 @@
     coltitle=#1!20!black,
     lefttitle=1em,
     fonttitle=\large\bfseries,
+    subtitle style={top=0pt,right=1em,bottom=0pt,left=1em,fontupper=\normalsize\bfseries},
     tabularx=X,
     title=#2
 }
@@ -43,6 +44,7 @@
         {\footnotesize #3}
     } \\
 }
+\newcommand{\subsectiontitle}[1]{\tcbsubtitle{\uppercase{#1}}\vspace*{-0.5em}}
 \newcommand{\valueat}[2]{\textmd{#1}{\scriptsize \normalfont #2}}
 
 \begin{document}
@@ -58,6 +60,8 @@
     % \end{checklistbox}
 
     \begin{checklistbox}{Preflight (Interior)}
+        \checkitem{Weather}{}
+        \checkitem{Weight \& Balance}{VERIFY OK}
         \checkitem{Fire Extinguisher \& Hammer}{ON BOARD}
         TODO
     \end{checklistbox}
@@ -67,7 +71,6 @@
         \checkitemnote{Passengers}{BRIEF}{\textbf{S}eat Belts, \textbf{A}/C, \textbf{F}ire, \textbf{E}xit, \textbf{T}raffic/Talking, CAPS}
         \checkitem{Seat Belts}{ADJUST \& SECURE}
         \checkitem{CAPS Pin}{REMOVE}
-        TODO
     \end{checklistbox}
 
     \begin{checklistbox}{Starting Engine}
@@ -75,26 +78,36 @@
         \checkitem{Ignition Key}{INSERTED}
         \checkitem{Battery Masters 2 \& 1}{ON, CHECK 24V}
         \checkitem{Strobe Lights}{ON}
+        \checkitem{Propeller Area}{CLEAR}
+        \checkitem{Oil Temperature}{CHECK}
+
+        \subsectiontitle{Normal Start}
+
         \checkitem{Mixture}{FULL RICH}
         \checkitem{Power Lever}{FULL FORWARD}
         \checkitemnote{Fuel Pump}{PRIME, then BOOST}{Prime for 5 secs until fuel flow reaches 15\,gph}
-        \checkitem{Propeller Area}{CLEAR}
         \checkitem{Power Lever}{OPEN ¼ INCH}
         \checkitem{Ignition Switch}{START}
         \checkitem{Power Lever}{1000\,RPM}
-        \checkitem{Oil Pressure}{CHECK > 0}
-        \checkitem{Alternator Masters 1 \& 2}{ON}
-        \checkitem{Avionics Master}{ON}
-        \checkitem{Engine Parameters}{CHECK GREEN}
-    \end{checklistbox}
 
-    \begin{checklistbox}{Starting Engine (Flooded)}
+        \subsectiontitle{Hot Start If Oil Temp > 160\textdegree F}
+        \checkitem{TODO}{TODO}
+        \checkitem{TODO}{TODO}
+        \checkitem{TODO}{TODO}
+
+        \subsectiontitle{Flooded Start}
         \checkitem{Fuel Pump}{OFF}
         \checkitem{Mixture}{LEAN}
         \checkitem{Power Lever}{FULL FORWARD}
         \checkitem{Ignition Switch}{START}
         \checkitem{Power Lever}{RETARD}
         \checkitem{Mixture}{SLOWLY ADVANCE TO RICH}
+
+        \subsectiontitle{After Engine Start}
+
+        \checkitem{Alternator Masters 1 \& 2}{ON}
+        \checkitem{Avionics Master}{ON}
+        \checkitem{Engine Parameters}{CHECK GREEN}
     \end{checklistbox}
 
     \begin{checklistbox}{Before Taxiing}
