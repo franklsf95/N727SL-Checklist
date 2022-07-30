@@ -70,20 +70,37 @@
 
 \begin{multicols}{3}
 
-    % \begin{checklistbox}[green]{Flight Planning}
-    %     \checkitem{Weather Briefing}{OBTAIN}
-    %     \checkitem{Weight and Balance}{CALCULATE}
-    % \end{checklistbox}
-
-    \begin{checklistbox}[pink]{Preflight (Interior)}
-        \checkitem{Weather}{}
+    \begin{checklistbox}[pink]{Preflight}
+        \checkitem{Weather}{BRIEF}
+        \checkitem{Flight Plan}{FILE as rqd.}
         \checkitem{Weight \& Balance}{VERIFY OK}
+
+        \subsectiontitle{Interior}
+        \checkitemnote{Required Documents}{ON BOARD}{\textbf{A}irworthiness, \textbf{R}egistration, P\textbf{O}H, \textbf{W}\&B}
+        \checkitem{Avionics Master}{OFF}
+        \checkitem{Battery Master 2}{ON}
+        \checkitem{Avionics Cooling Fan}{AUDIBLE}
+        \checkitem{PFD Voltmeter}{23--25\,V}
+        \checkitem{Flap Position Light}{OUT}
+        \checkitem{Battery Master 1}{ON}
+        \checkitem{Exterior Lights}{CHECK}
+        \checkitem{Stall Warning}{TEST}
+        \checkitem{Fuel Quantity}{CHECK}
+        \checkitem{Fuel Selector}{FULLEST TANK}
+        \checkitem{Flaps}{100\%, CHECK LIGHT ON}
+        \checkitem{Oil Annunciator}{ON}
+        \checkitem{Battery Masters 1 \& 2}{OFF}
+        \checkitem{Alternate Static Source}{NORMAL}
+        \checkitem{Circuit Breakers}{IN}
         \checkitem{Fire Extinguisher \& Hammer}{ON BOARD}
+
+        \subsectiontitle{Exterior}
         TODO
     \end{checklistbox}
 
     \begin{checklistbox}[purple]{Before Starting Engine}
         \checkitem{Preflight Inspection}{COMPLETED}
+        \checkitem{Tiedowns \& Wheel Chocks}{REMOVED}
         \checkitemnote{Passengers}{BRIEF}{\textbf{S}eat Belts, \textbf{A}/C, \textbf{F}ire, \textbf{E}xit, \textbf{T}raffic/Talking, CAPS}
         \checkitem{Seat Belts}{ADJUST \& SECURE}
         \checkitem{CAPS Pin}{REMOVE}
@@ -92,7 +109,7 @@
     \begin{checklistbox}[purple]{Starting Engine}
         \checkitem{Brakes}{HOLD}
         \checkitem{Ignition Key}{INSERTED}
-        \checkitem{Battery Masters 2 \& 1}{ON, CHECK 24V}
+        \checkitem{Battery Masters 2 \& 1}{ON, CHECK 24\,V}
         \checkitem{Strobe Lights}{ON}
         \checkitem{Propeller Area}{CLEAR}
         \checkitem{Oil Temperature}{CHECK}
@@ -141,7 +158,7 @@
         \checkitem{Turn Coordinator}{CHECK}
     \end{checklistbox}
 
-    \begin{checklistbox}[orange]{Before Takeoff (Run-up)}
+    \begin{checklistbox}[orange]{Before Takeoff}
         \checkitem{CAPS Pin}{REMOVED}
         \checkitem{Flight Controls}{FREE \& CORRECT}
         \checkitem{Trim}{SET TAKEOFF}
@@ -155,16 +172,22 @@
         \checkitem{Fuel Selector}{SWITCH TANK}
         \checkitem{Fuel Pump}{BOOST}
         \checkitem{Doors}{CLOSE \& LATCH}
+
+        \subsectiontitle{Engine Run-up}
+
         \checkitem{Mixture}{FULL RICH or as rqd.}
         \checkitem{Brakes}{HOLD}
         \checkitem{Power Lever}{1700\,RPM}
         \checkitem{Pitot Heat \& Lights}{ON}
         \checkitem{Annunciators}{CHECK CLEAR}
         \checkitem{Alternator Load}{CHECK BOTH > 0}
-        \checkitem{Alternator Voltage}{CHECK 28V}
+        \checkitem{Alternator Voltage}{CHECK 28\,V}
         \checkitem{Pitot Heat \& Lights}{As rqd.}
         \checkitemnote{Magnetos}{CHECK L \& R}{Check RPM drop < 150, RPM differential < 75}
         \checkitem{Engine Parameters}{CHECK GREEN}
+
+        \subsectiontitle{After Engine Run-up}
+
         \checkitem{Power Lever}{1000\,RPM}
         \checkitem{Mixture}{LEAN as rqd.}
         \checkitem{Flight Plan}{OPEN}
