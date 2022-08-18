@@ -116,7 +116,7 @@
         \checkitem{CAPS Pin}{REMOVE}
     \end{checklistbox}
 
-    \begin{checklistbox}[purple]{Starting Engine}
+    \begin{checklistbox}[blue]{Starting Engine}
         \checkitem{Brakes}{HOLD}
         \checkitem{Ignition Key}{INSERTED}
         \checkitem{Battery Masters 2 \& 1}{ON, CHECK 24\,V}
@@ -155,7 +155,7 @@
         \checkitem{Engine Parameters}{CHECK GREEN}
     \end{checklistbox}
 
-    \begin{checklistbox}[cyan]{Before Taxiing}
+    \begin{checklistbox}[blue]{Before Taxiing}
         \checkitem{Weather Information}{OBTAIN}
         \checkitem{Altimeter}{SET}
         \checkitem{Flaps}{UP}
@@ -168,7 +168,7 @@
         \checkitem{Turn Coordinator}{CHECK}
     \end{checklistbox}
 
-    \begin{checklistbox}[orange]{Before Takeoff}
+    \begin{checklistbox}[blue]{Before Takeoff}
         \checkitem{CAPS Pin}{REMOVED}
         \checkitem{Flight Instruments}{CHECK}
         \checkitem{Flight Controls}{FREE \& CORRECT}
@@ -222,7 +222,7 @@
     %     \valueat{19.5}{ (\,10,000')}
     % \end{checklistbox}
 
-    \begin{checklistbox}[red]{Takeoff}
+    \begin{checklistbox}[orange]{Takeoff}
         \checkitem{Lights}{ON}
         \checkitem{Transponder}{SET}
         \checkitem{Flaps}{VERIFY 50\%}
@@ -241,7 +241,7 @@
         \rowcolor{red!20} \checkitem{Best Rate V\textsubscript{Y}}{\valueat{101}{ (SL)}\;\valueat{95}{ (10,000')}}
     \end{checklistbox}
 
-    \begin{checklistbox}[pink]{Climb}
+    \begin{checklistbox}[orange]{Climb}
         \checkitem{Power}{FULL}
         \checkitemnote{Mixture}{As rqd.}{Lean to maximum power flow when above 4000'}
         \checkitem{Engine Parameters}{CHECK GREEN}
@@ -250,7 +250,7 @@
         \rowcolor{pink!20} \checkitem{Enroute Climb}{\valueat{110--120\,KIAS}{}}
     \end{checklistbox}
 
-    \begin{checklistbox}[green]{Cruise}
+    \begin{checklistbox}[orange]{Cruise}
         \checkitem{Lights}{As rqd.}
         \checkitem{Fuel Pump}{OFF}
         \checkitem{Power}{SET}
@@ -259,7 +259,7 @@
         \checkitem{Fuel Selector}{SWITCH as rqd.}
     \end{checklistbox}
 
-    \begin{checklistbox}[yellow]{Approach \& Descent}
+    \begin{checklistbox}[orange]{Approach \& Descent}
         \checkitem{Weather Information}{OBTAIN}
         \checkitem{Altimeter}{SET}
         \checkitem{Approach Procedure}{BRIEF}
@@ -288,7 +288,7 @@
         \checkitemnote{Flaps}{50\%, UP}{Retract all flaps when airspeed is above 80\,KIAS}
     \end{checklistbox}
 
-    \begin{checklistbox}[cyan]{After Landing}
+    \begin{checklistbox}[blue]{After Landing}
         \checkitem{Power Lever}{1000\,RPM}
         \checkitem{Mixture}{GROUND LEAN}
         % \checkitem{Fuel Pump}{BOOST}
@@ -297,7 +297,7 @@
         % \checkitem{Lights}{As rqd.}
     \end{checklistbox}
 
-    \begin{checklistbox}[purple]{Shutdown}
+    \begin{checklistbox}[blue]{Shutdown}
         \checkitem{Fuel Quantity}{RECORD}
         \checkitem{Avionics Master}{OFF}
         \checkitem{Power Lever}{IDLE}
@@ -315,16 +315,16 @@
 \begin{checklistbox}{Airspeeds \& Limits {\normalsize (All Speeds in KIAS)}}
     \ibox[red]{Never Exceed V\textsubscript{NE} 201}
     \ibox[red]{Max Cruise V\textsubscript{NO} 178}
-    \ibox[orange]{Maneuvering V\textsubscript{O} \valueat{133}{ (3400\,lb)} \valueat{123}{ (2900\,lb)}}
-    \ibox[yellow]{Stall V\textsubscript{S} \valueat{70}{ (clean)} \valueat{59}{ (flaps)}}
+    \ibox[red]{Maneuvering V\textsubscript{O} \valueat{133}{ (3400\,lb)} \valueat{123}{ (2900\,lb)}}
+    \ibox[red]{CAPS Deployment V\textsubscript{PD} 133}
     \\
-    \ibox[green]{Flap Extension V\textsubscript{FE} \valueat{119}{ (50\%)} \valueat{104}{ (100\%)}}
-    \ibox[cyan]{Best Glide V\textsubscript{G} 88}
-    \ibox[purple]{CAPS Deployment V\textsubscript{PD} 133}
+    \ibox[orange]{Flap Extension V\textsubscript{FE} \valueat{119}{ (50\%)} \valueat{104}{ (100\%)}}
+    \ibox[orange]{Best Glide V\textsubscript{G} 88}
+    \ibox[orange]{Stall V\textsubscript{S} \valueat{70}{ (clean)} \valueat{59}{ (flaps)}}
     \\
     \ibox[blue]{Oil 15W-50/20W-50/20W-60, 6--8\,qt}
     \ibox[blue]{Fuel Capacity \valueat{47\,gal}{ (tabs)} \valueat{81\,gal}{ (total)}}
-    \ibox[orange]{MTOW 3400\,lb\;BEW 2340\,lb}
+    \ibox[blue]{MTOW 3400\,lb\;BEW 2340\,lb}
 \end{checklistbox}
 
 \end{document}
