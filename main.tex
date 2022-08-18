@@ -13,7 +13,7 @@
 \usepackage[table]{xcolor}
 \usepackage{tcolorbox}
 
-\newcommand{\checklistversion}{v2022.08.17}
+\newcommand{\checklistversion}{v2022.08.18}
 
 \definecolor{pink}{HTML}{FFC6FF}
 \definecolor{purple}{HTML}{BDB2FF}
@@ -44,23 +44,21 @@
     tabularx=X,
     title=#2
 }
-\newtcbox{ibox}[1][red]{
+\newtcbox{ibox}[1][lightgray]{
     arc=2pt,
     boxsep=0pt,
-    boxrule=1pt,
+    boxrule=0pt,
     colback=#1!50!white,
     colframe=#1!50!black,
     on line,
-    enlarge top by=1pt,
-    enlarge bottom by=1pt,
     enlarge right by=1pt,
+    enlarge top by=2pt,
     left=4pt,
     right=4pt,
-    top=2pt,
-    bottom=2pt
+    top=1pt,
+    bottom=1pt
 }
 
-\rowcolors{2}{gray!20}{white}
 \newcommand{\checkitem}[2]{#1 \dotfill \textbf{#2} \\}
 \newcommand{\checkitemnote}[3]{
     \makecell[X]{
@@ -82,6 +80,7 @@
 \end{tcolorbox}
 
 \begin{multicols}{3}
+    \rowcolors{2}{gray!20}{white}
 
     \begin{checklistbox}[blue]{Preflight}
         \checkitem{Weather}{BRIEF}
@@ -237,8 +236,8 @@
         \checkitem{At 70\,kts, Elevator}{ROTATE}
         \checkitem{At 90\,kts, Flaps}{UP}
         \checkitem{At 500' AGL, CAPS}{CALLOUT}
-        \rowcolor{red!10} \checkitem{Best Angle V\textsubscript{X}}{\valueat{78}{ (SL)}\;\valueat{82}{ (10,000')}}
-        \rowcolor{red!20} \checkitem{Best Rate V\textsubscript{Y}}{\valueat{101}{ (SL)}\;\valueat{95}{ (10,000')}}
+        \rowcolor{orange!10} \checkitem{Best Angle V\textsubscript{X}}{\valueat{78}{ (SL)}\;\valueat{82}{ (10,000')}}
+        \rowcolor{orange!20} \checkitem{Best Rate V\textsubscript{Y}}{\valueat{101}{ (SL)}\;\valueat{95}{ (10,000')}}
     \end{checklistbox}
 
     \begin{checklistbox}[orange]{Climb}
@@ -247,7 +246,7 @@
         \checkitem{Engine Parameters}{CHECK GREEN}
         \checkitem{Fuel Pump}{BOOST}
         \checkitem{Flaps}{VERIFY UP}
-        \rowcolor{pink!20} \checkitem{Enroute Climb}{\valueat{110--120\,KIAS}{}}
+        \rowcolor{orange!20} \checkitem{Enroute Climb}{\valueat{110--120\,KIAS}{}}
     \end{checklistbox}
 
     \begin{checklistbox}[orange]{Cruise}
@@ -311,20 +310,34 @@
 
 \end{multicols}
 
+\vspace*{-10pt}
 
-\begin{checklistbox}{Airspeeds \& Limits {\normalsize (All Speeds in KIAS)}}
-    \ibox[red]{Never Exceed V\textsubscript{NE} 201}
-    \ibox[red]{Max Cruise V\textsubscript{NO} 178}
-    \ibox[red]{Maneuvering V\textsubscript{O} \valueat{133}{ (3400\,lb)} \valueat{123}{ (2900\,lb)}}
-    \ibox[red]{CAPS Deployment V\textsubscript{PD} 133}
-    \\
-    \ibox[orange]{Flap Extension V\textsubscript{FE} \valueat{119}{ (50\%)} \valueat{104}{ (100\%)}}
-    \ibox[orange]{Best Glide V\textsubscript{G} 88}
-    \ibox[orange]{Stall V\textsubscript{S} \valueat{70}{ (clean)} \valueat{59}{ (flaps)}}
-    \\
-    \ibox[blue]{Oil 15W-50/20W-50/20W-60, 6--8\,qt}
-    \ibox[blue]{Fuel Capacity \valueat{47\,gal}{ (tabs)} \valueat{81\,gal}{ (total)}}
-    \ibox[blue]{MTOW 3400\,lb\;BEW 2340\,lb}
+\begin{checklistbox}[gray]{}
+    \subsectiontitle{Airspeeds (KIAS) and Limitations}
+    \makecell[X]{
+        \ibox[red]{Never Exceed V\textsubscript{NE} 201}
+        \ibox[red]{Max Cruise V\textsubscript{NO} 178}
+        \ibox[red]{Maneuvering V\textsubscript{O} \valueat{133}{ (3400\,lb)} \valueat{123}{ (2900\,lb)}}
+        \ibox[red]{Max CAPS V\textsubscript{PD} 133}
+        \\
+        \ibox[orange]{Flap Extension V\textsubscript{FE} \valueat{119}{ (50\%)} \valueat{104}{ (100\%)}}
+        \ibox[orange]{Best Glide V\textsubscript{G} 88}
+        \ibox[orange]{Stall V\textsubscript{S} \valueat{70}{ (clean)} \valueat{59}{ (flaps)}}
+        \\
+        \ibox[blue]{Oil (15W-50/20W-50/20W-60) 6--8\,qt}
+        \ibox[blue]{Fuel Capacity \valueat{47\,gal}{ (tabs)} \valueat{81\,gal}{ (total)}}
+        \ibox[blue]{MTOW 3400\,lb\;BEW 2340\,lb}
+        \vspace*{3pt}
+    } \\
+    \subsectiontitle{Power Settings (TODO: These numbers need verification)}
+    \makecell[X]{
+        \ibox{Cruise (EGT \textasciitilde 1450\textdegree F, 50\textdegree F LOP): 2400\,RPM, 70\% Power, 13.6\,gph, 170\,KTAS @ 8000'}
+        \ibox{Slow Cruise: 40\% Power, 11\,gph, 120\,KIAS}
+        \\
+        \ibox{Precision Descent: 20\% Power, 50\% Flaps, 105\,KIAS, 500fpm}
+        \ibox{Non-Precision Descent: 15\% Power, 50\% Flaps, 105\,KIAS, 700fpm}
+        \vspace*{3pt}
+    }
 \end{checklistbox}
 
 \end{document}
