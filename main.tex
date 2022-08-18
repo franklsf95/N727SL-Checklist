@@ -13,6 +13,8 @@
 \usepackage[table]{xcolor}
 \usepackage{tcolorbox}
 
+\newcommand{\checklistversion}{v2022.08.17}
+
 \definecolor{pink}{HTML}{FFC6FF}
 \definecolor{purple}{HTML}{BDB2FF}
 \definecolor{blue}{HTML}{A0C4FF}
@@ -42,14 +44,20 @@
     tabularx=X,
     title=#2
 }
-\newtcolorbox{notebox}[1][yellow]{
-    arc=1pt,
+\newtcbox{ibox}[1][red]{
+    arc=2pt,
+    boxsep=0pt,
     boxrule=1pt,
-    colframe=#1,
-    colback=#1!10,
-    fontupper=\footnotesize,
-    left=0pt,
-    right=0pt
+    colback=#1!50!white,
+    colframe=#1!50!black,
+    on line,
+    enlarge top by=1pt,
+    enlarge bottom by=1pt,
+    enlarge right by=1pt,
+    left=4pt,
+    right=4pt,
+    top=2pt,
+    bottom=2pt
 }
 
 \rowcolors{2}{gray!20}{white}
@@ -65,40 +73,42 @@
 
 \begin{document}
 \begin{tcolorbox}
-    \Large \textsc{Cirrus SR-22 Flight Operations Checklist}
+    \Large \textsc{
+        Cirrus SR-22 G2 Flight Operations Checklist
+            {\footnotesize \checklistversion}
+        \hfill
+        N727SL
+    }
 \end{tcolorbox}
 
 \begin{multicols}{3}
 
-    \begin{checklistbox}[pink]{Preflight}
+    \begin{checklistbox}[blue]{Preflight}
         \checkitem{Weather}{BRIEF}
         \checkitem{Flight Plan}{FILE as rqd.}
         \checkitem{Weight \& Balance}{VERIFY OK}
 
         \subsectiontitle{Interior}
-        \checkitemnote{Required Documents}{ON BOARD}{\textbf{A}irworthiness, \textbf{R}egistration, P\textbf{O}H, \textbf{W}\&B}
-        \checkitem{Avionics Master}{OFF}
+        \checkitemnote{Documents}{ON BOARD}{\textbf{A}irworthiness, \textbf{R}egistration, P\textbf{O}H, \textbf{W}\&B}
+        % \checkitem{Avionics Master}{OFF}
         \checkitem{Battery Master 2}{ON}
         \checkitem{Avionics Cooling Fan}{AUDIBLE}
         \checkitem{PFD Voltmeter}{23--25\,V}
         \checkitem{Flap Position Light}{OUT}
         \checkitem{Battery Master 1}{ON}
         \checkitem{Exterior Lights}{CHECK}
-        \checkitem{Stall Warning}{TEST}
+        % \checkitem{Stall Warning}{TEST}
         \checkitem{Fuel Quantity}{CHECK}
-        \checkitem{Fuel Selector}{FULLEST TANK}
+        % \checkitem{Fuel Selector}{FULLEST TANK}
         \checkitem{Flaps}{100\%, CHECK LIGHT ON}
         \checkitem{Oil Annunciator}{ON}
         \checkitem{Battery Masters 1 \& 2}{OFF}
         \checkitem{Alternate Static Source}{NORMAL}
         \checkitem{Circuit Breakers}{IN}
         \checkitem{Fire Extinguisher \& Hammer}{ON BOARD}
-
-        \subsectiontitle{Exterior}
-        TODO
     \end{checklistbox}
 
-    \begin{checklistbox}[purple]{Before Starting Engine}
+    \begin{checklistbox}[blue]{Before Starting Engine}
         \checkitem{Preflight Inspection}{COMPLETED}
         \checkitem{Tiedowns \& Wheel Chocks}{REMOVED}
         \checkitemnote{Passengers}{BRIEF}{\textbf{S}eat Belts, \textbf{A}/C, \textbf{F}ire, \textbf{E}xit, \textbf{T}raffic/Talking, CAPS}
@@ -112,43 +122,43 @@
         \checkitem{Battery Masters 2 \& 1}{ON, CHECK 24\,V}
         \checkitem{Strobe Lights}{ON}
         \checkitem{Propeller Area}{CLEAR}
-        \checkitem{Oil Temperature}{CHECK}
 
-        \subsectiontitle{Normal Start}
+        \subsectiontitle{Priming (Cold Start)}
 
         \checkitem{Mixture}{FULL RICH}
         \checkitem{Power Lever}{FULL FORWARD}
-        \checkitemnote{Fuel Pump}{PRIME, then BOOST}{Prime for 5 secs until fuel flow reaches 15\,gph}
-        \checkitem{Power Lever}{OPEN ¼ INCH}
-        \checkitem{Ignition Switch}{START}
-        \checkitem{Power Lever}{1000\,RPM}
+        \checkitemnote{Fuel Pump}{PRIME}{Prime for 5 secs until fuel flow reaches 15\,gph}
 
-        \subsectiontitle{Hot Start If Oil Temp > 160\textdegree F}
-        \checkitem{TODO}{TODO}
-        \checkitem{TODO}{TODO}
-        \checkitem{TODO}{TODO}
+        \subsectiontitle{Normal Start}
+
+        \checkitem{Mixture}{LEAN}
+        \checkitem{Power Lever}{OPEN ¼ INCH}
+        \checkitem{Fuel Pump}{BOOST}
+        \checkitem{Ignition Switch}{START}
+        \checkitem{Mixture}{ADVANCE TO RICH}
 
         \subsectiontitle{Flooded Start}
+
         \checkitem{Fuel Pump}{OFF}
         \checkitem{Mixture}{LEAN}
         \checkitem{Power Lever}{FULL FORWARD}
         \checkitem{Ignition Switch}{START}
         \checkitem{Power Lever}{RETARD}
-        \checkitem{Mixture}{SLOWLY ADVANCE TO RICH}
+        \checkitem{Mixture}{ADVANCE TO RICH}
 
         \subsectiontitle{After Engine Start}
 
+        \checkitem{Power Lever}{1000\,RPM}
+        \checkitem{Mixture}{GROUND LEAN}
         \checkitem{Alternator Masters 1 \& 2}{ON}
         \checkitem{Avionics Master}{ON}
         \checkitem{Engine Parameters}{CHECK GREEN}
     \end{checklistbox}
 
-    \begin{checklistbox}[blue]{Before Taxiing}
+    \begin{checklistbox}[cyan]{Before Taxiing}
         \checkitem{Weather Information}{OBTAIN}
-        \checkitem{Taxi Clearance (Radio 2)}{OBTAIN}
         \checkitem{Altimeter}{SET}
         \checkitem{Flaps}{UP}
-        \checkitem{Mixture}{LEAN as rqd.}
 
         \subsectiontitle{During Taxiing}
 
@@ -160,14 +170,10 @@
 
     \begin{checklistbox}[orange]{Before Takeoff}
         \checkitem{CAPS Pin}{REMOVED}
-        \checkitem{Flight Controls}{FREE \& CORRECT}
-        \checkitem{Trim}{SET TAKEOFF}
-        \checkitem{Altimeter}{SET}
         \checkitem{Flight Instruments}{CHECK}
-        \checkitem{Flaps}{50\%}
-        \checkitem{Transponder}{SET}
-        \checkitem{Autopilot}{CHECK}
-        \checkitem{Navigation \& GPS}{SET}
+        \checkitem{Flight Controls}{FREE \& CORRECT}
+        \checkitem{Autopilot}{TEST}
+        \checkitem{Trim}{SET TAKEOFF}
         \checkitem{Fuel Quantity}{CONFIRM}
         \checkitem{Fuel Selector}{SWITCH TANK}
         \checkitem{Fuel Pump}{BOOST}
@@ -178,9 +184,9 @@
         \checkitem{Mixture}{FULL RICH or as rqd.}
         \checkitem{Brakes}{HOLD}
         \checkitem{Power Lever}{1700\,RPM}
-        \checkitem{Pitot Heat \& Lights}{ON}
         \checkitem{Annunciators}{CHECK CLEAR}
-        \checkitem{Alternator Load}{CHECK BOTH > 0}
+        \checkitem{Pitot Heat \& Lights}{ON}
+        \checkitem{Alternator Load}{CHECK}
         \checkitem{Alternator Voltage}{CHECK 28\,V}
         \checkitem{Pitot Heat \& Lights}{As rqd.}
         \checkitemnote{Magnetos}{CHECK L \& R}{Check RPM drop < 150, RPM differential < 75}
@@ -189,10 +195,15 @@
         \subsectiontitle{After Engine Run-up}
 
         \checkitem{Power Lever}{1000\,RPM}
-        \checkitem{Mixture}{LEAN as rqd.}
+        \checkitem{Mixture}{GROUND LEAN}
+        \checkitem{Flaps}{50\%}
+        \checkitem{Altimeter}{SET}
+        \checkitem{Navigation \& GPS}{SET}
+        \checkitem{COM Radios}{SET}
+        \checkitem{Transponder}{SET}
         \checkitem{Flight Plan}{OPEN}
         \checkitem{Takeoff \& Abort Plan}{BRIEF}
-        \checkitem{Takeoff Clearance (Radio 1)}{OBTAIN}
+        % \checkitem{Takeoff Clearance (Radio 1)}{OBTAIN}
     \end{checklistbox}
 
     %% Skipped since this data is available on the instrument panel.
@@ -212,58 +223,60 @@
     % \end{checklistbox}
 
     \begin{checklistbox}[red]{Takeoff}
-        \checkitem{Fuel Pump}{BOOST}
-        \checkitem{Mixture}{FULL RICH or as rqd.}
-        \checkitem{Transponder}{SET}
         \checkitem{Lights}{ON}
-        \checkitem{Brakes}{RELEASE}
+        \checkitem{Transponder}{SET}
+        \checkitem{Flaps}{VERIFY 50\%}
+        \checkitem{Mixture}{FULL RICH or as rqd.}
+        \checkitem{Fuel Pump}{BOOST}
+
+        \subsectiontitle{Starting Takeoff}
+
         \checkitem{Power Lever}{FULL FORWARD}
-        \checkitem{Propeller}{CHECK 2700\,RPM}
+        \checkitem{Propeller}{CHECK 2600\,RPM}
         \checkitem{Engine Parameters}{CHECK GREEN}
-        \checkitem{Elevator}{ROTATE (70--73\,KIAS)}
-        \checkitem{At 500\,ft, CAPS}{CALLOUT ``Available''}
-        \checkitem{At 80\,kts, Flaps}{UP}
-        \rowcolor{red!20} \checkitem{Best Angle V\textsubscript{X}}{\valueat{78}{ (SL)}\;\valueat{82}{ (10,000')}}
-        \rowcolor{cyan!20} \checkitem{Best Rate V\textsubscript{Y}}{\valueat{101}{ (SL)}\;\valueat{95}{ (10,000')}}
+        \checkitem{At 70\,kts, Elevator}{ROTATE}
+        \checkitem{At 90\,kts, Flaps}{UP}
+        \checkitem{At 500' AGL, CAPS}{CALLOUT}
+        \rowcolor{red!10} \checkitem{Best Angle V\textsubscript{X}}{\valueat{78}{ (SL)}\;\valueat{82}{ (10,000')}}
+        \rowcolor{red!20} \checkitem{Best Rate V\textsubscript{Y}}{\valueat{101}{ (SL)}\;\valueat{95}{ (10,000')}}
     \end{checklistbox}
 
-    \begin{checklistbox}[blue]{Climb}
-        \checkitem{Power}{TODO set to what?}
-        \checkitem{Mixture}{TODO when to lean?}
+    \begin{checklistbox}[pink]{Climb}
+        \checkitem{Power}{FULL}
+        \checkitemnote{Mixture}{As rqd.}{Lean to maximum power flow when above 4000'}
         \checkitem{Engine Parameters}{CHECK GREEN}
         \checkitem{Fuel Pump}{BOOST}
-        \checkitem{Flaps}{UP}
-        \rowcolor{cyan!20} \checkitem{Enroute Climb}{\valueat{110--120\,KIAS}{}}
+        \checkitem{Flaps}{VERIFY UP}
+        \rowcolor{pink!20} \checkitem{Enroute Climb}{\valueat{110--120\,KIAS}{}}
     \end{checklistbox}
 
     \begin{checklistbox}[green]{Cruise}
         \checkitem{Lights}{As rqd.}
         \checkitem{Fuel Pump}{OFF}
         \checkitem{Power}{SET}
-        \makecell[X]{
-            \checkitemnote{Mixture}{LEAN as rqd.}
-            {\footnotesize Best Power: 75\textdegree F rich of peak EGT, power < 75\%}
-            {\footnotesize Best Economy: 50\textdegree F lean of peak EGT, power < 65\%}
-        } \\
+        \checkitem{Mixture}{LEAN as rqd.}
         \checkitem{Engine Parameters}{CHECK GREEN}
         \checkitem{Fuel Selector}{SWITCH as rqd.}
     \end{checklistbox}
 
-    \begin{checklistbox}[orange]{Descent}
+    \begin{checklistbox}[yellow]{Approach \& Descent}
+        \checkitem{Weather Information}{OBTAIN}
         \checkitem{Altimeter}{SET}
+        \checkitem{Approach Procedure}{BRIEF}
         \checkitem{Lights}{ON}
+        \checkitem{Fuel Pump}{BOOST}
         \checkitem{Fuel Selector}{FULLEST TANK}
-        \checkitem{Mixture}{RICHEN as rqd.}
-        \checkitem{Brake Pressure}{CHECK}
+        \checkitem{Mixture}{As rqd.}
+        % \checkitem{Brake Pressure}{CHECK}
     \end{checklistbox}
 
     \begin{checklistbox}[orange]{Before Landing}
-        \checkitem{Seat Belts}{SECURE}
         \checkitem{Fuel Pump}{BOOST}
         \checkitem{Mixture}{FULL RICH or as rqd.}
+        \checkitem{Seat Belts}{SECURE}
         \checkitem{Flaps}{DEPLOY}
-        \rowcolor{orange!10} \checkitem{Approach (Flaps UP)}{\valueat{90--95\,KIAS}{}}
-        \rowcolor{orange!20} \checkitem{Approach (Flaps 50\%)}{\valueat{85--90\,KIAS}{}}
+        \rowcolor{orange!10} \checkitem{Approach (Flaps UP)}{\valueat{100--110\,KIAS}{}}
+        \rowcolor{orange!20} \checkitem{Approach (Flaps 50\%)}{\valueat{90--100\,KIAS}{}}
         \rowcolor{orange!30} \checkitem{Approach (Flaps 100\%)}{\valueat{80--85\,KIAS}{}}
         \rowcolor{orange!40} \checkitem{Short Field (Flaps 100\%)}{\valueat{77\,KIAS}{}}
     \end{checklistbox}
@@ -271,41 +284,47 @@
     \begin{checklistbox}[red]{Go-Around}
         \checkitem{Autopilot}{DISENGAGE}
         \checkitem{Power Lever}{FULL FORWARD}
-        \checkitem{Flaps}{50\%}
-        \checkitem{Airspeed}{75--80\,KIAS}
-        \checkitem{Flaps}{UP}
+        \checkitem{Mixture}{FULL RICH or as rqd.}
+        \checkitemnote{Flaps}{50\%, UP}{Retract all flaps when airspeed is above 80\,KIAS}
     \end{checklistbox}
 
-    \begin{checklistbox}[blue]{After Landing}
+    \begin{checklistbox}[cyan]{After Landing}
         \checkitem{Power Lever}{1000\,RPM}
-        \checkitem{Fuel Pump}{OFF}
+        \checkitem{Mixture}{GROUND LEAN}
+        % \checkitem{Fuel Pump}{BOOST}
         \checkitem{Flaps}{UP}
-        \checkitem{Lights}{As rqd.}
-        \checkitem{Pitot Heat}{OFF}
+        \checkitem{Transponder}{VFR}
+        % \checkitem{Lights}{As rqd.}
     \end{checklistbox}
 
     \begin{checklistbox}[purple]{Shutdown}
-        \checkitem{Fuel Pump}{OFF}
+        \checkitem{Fuel Quantity}{RECORD}
+        \checkitem{Avionics Master}{OFF}
         \checkitem{Power Lever}{IDLE}
-        \checkitem{Ignition Switch}{OFF, then BOTH}
+        % \checkitem{Ignition Switch}{OFF, then BOTH}
+        \checkitem{Fuel Pump}{OFF}
         \checkitem{Mixture}{CUTOFF}
         \checkitem{All Switches}{OFF}
         \checkitem{Ignition Switch}{OFF}
-        \checkitem{ELT}{NOT TRANSMITTING}
+        % \checkitem{ELT}{NOT TRANSMITTING}
     \end{checklistbox}
 
 \end{multicols}
 
 
-\begin{checklistbox}{}
-    \textbf{Airspeeds; Gaits Table} \\
-    \checkitem{TODO}{}
-\end{checklistbox}
-
-
-\begin{checklistbox}{}
-    \textbf{\normalsize Cruise Power Settings} \\
-    \checkitem{TODO}{}
+\begin{checklistbox}{Airspeeds \& Limits {\normalsize (All Speeds in KIAS)}}
+    \ibox[red]{Never Exceed V\textsubscript{NE} 201}
+    \ibox[red]{Max Cruise V\textsubscript{NO} 178}
+    \ibox[orange]{Maneuvering V\textsubscript{O} \valueat{133}{ (3400\,lb)} \valueat{123}{ (2900\,lb)}}
+    \ibox[yellow]{Stall V\textsubscript{S} \valueat{70}{ (clean)} \valueat{59}{ (flaps)}}
+    \\
+    \ibox[green]{Flap Extension V\textsubscript{FE} \valueat{119}{ (50\%)} \valueat{104}{ (100\%)}}
+    \ibox[cyan]{Best Glide V\textsubscript{G} 88}
+    \ibox[purple]{CAPS Deployment V\textsubscript{PD} 133}
+    \\
+    \ibox[blue]{Oil 15W-50/20W-50/20W-60, 6--8\,qt}
+    \ibox[blue]{Fuel Capacity \valueat{47\,gal}{ (tabs)} \valueat{81\,gal}{ (total)}}
+    \ibox[orange]{MTOW 3400\,lb\;BEW 2340\,lb}
 \end{checklistbox}
 
 \end{document}
